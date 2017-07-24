@@ -1,8 +1,35 @@
 <%- include partials/header %>
 <%- include partials/nav %>
+<div class="columns">
 
-<div>
-  sign up
+
+<div class="field column is-one-third is-offset-one-third">
+  <label class="label">Email</label>
+  <div class="control has-icons-left">
+    <input class="input" type="text" placeholder="Email" />
+    <span class="icon is-small is-left">
+      <i class="fa fa-envelope"></i>
+    </span>
+  </div>
+
+  <label class="label">Username</label>
+  <div class="control has-icons-left">
+    <input class="input" type="text" placeholder="Username" />
+    <span class="icon is-small is-left">
+      <i class="fa fa-user"></i>
+    </span>
+  </div>
+
+  <label class="label">Password</label>
+  <div class="control has-icons-left">
+    <input class="input" type="text" placeholder="password" />
+    <span class="icon is-small is-left">
+      <i class="fa fa-lock"></i>
+    </span>
+  </div>
+
+  <button class="button is-primary">Submit</button>
 </div>
 
+</div>
 <%- include partials/footer %>
