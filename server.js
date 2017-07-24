@@ -14,7 +14,7 @@ app.get('/', (request, response) => {
     if (error) {
       response.status(500).render('error', { error: error })
     } else {
-      response.render('index', { albums: albums })
+      response.render('home', { albums: albums })
     }
   })
 })
