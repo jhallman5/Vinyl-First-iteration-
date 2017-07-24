@@ -1,5 +1,4 @@
 const router = require('express').Router()
-const database = require('../../models/database')
 const albums = require('../../models/queries/albums')
 const user = require('../../models/queries/users')
 
@@ -33,7 +32,6 @@ router.get('/sign_up', (request, response) =>
 )
 
 router.post('/sign_up', (request, response) => {
-  console.log( "(>'')>  ", request.body )
   const user = request.body
   user.createUser(user)
 })

@@ -1,4 +1,4 @@
-const { query } = require('../database')
+const { query } = require('../config_db')
 
 const createUser = (user) => {
   const{ email, username, password } = user

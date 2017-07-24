@@ -14,16 +14,4 @@ const query = (sql, variables) =>
       throw new Error(error)
     })
 
-// const getAlbums = () =>
-//   query("SELECT * FROM albums", [])
-//
-//
-// const getAlbumsByID = (albumID) =>
-//   query("SELECT * FROM albums WHERE id = $1", [albumID])
-
-// const createUser = (user) => {
-//   const{ email, username, password } = user
-//   query("INSERT INTO users VALUES (DEFAULT, $1, $2, $3)", [email, username, password])
-// }
-
 module.exports = { query }
