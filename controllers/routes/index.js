@@ -30,6 +30,8 @@ router.get('/sign_up', (request, response) =>
 router.post('/sign_up', (request, response) => {
   const user = request.body
   User.createUser(user)
+    .then( userId => response.redirect(`/user/${userId[0].id}`) )
+    .catch( error => response.status(500).render('error', { error: error }))
 })
 
 router.get('/user/:userId', (request, response) => {
