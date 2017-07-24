@@ -21,7 +21,13 @@ const getAlbums = () =>
 const getAlbumsByID = (albumID) =>
   query("SELECT * FROM albums WHERE id = $1", [albumID])
 
+const createUser = (user) => {
+  const{ email, username, password } = user
+  query("INSERT INTO users VALUES (DEFAULT, $1, $2, $3)", [email, username, password])
+}
+
 module.exports = {
   getAlbums,
-  getAlbumsByID
+  getAlbumsByID,
+  createUser
 }

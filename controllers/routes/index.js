@@ -25,10 +25,16 @@ router.get('/sign_in', (request, response) =>
   response.render('sign_in')
 )
 
+
 router.get('/sign_up', (request, response) =>
   response.render('sign_up')
 )
 
+router.post('/sign_up', (request, response) => {
+  console.log( "(>'')>  ", request.body )
+  const user = request.body
+  database.createUser(user)
+})
 
 router.use( (request, response) =>
   response.status(404).render('not_found')
