@@ -9,6 +9,7 @@ require('ejs')
 server.set('view engine', 'ejs');
 
 server.use(express.static('public'))
+server.use('/scripts', express.static(__dirname + '/node_modules/bulma/css'))
 server.use(bodyParser.urlencoded({ extended: false }))
 
 server.use(router)
