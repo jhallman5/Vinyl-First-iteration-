@@ -1,8 +1,10 @@
 const router = require('express').Router()
 const database = require('../../models/database')
+const albums = require('../../models/queries/albums')
+const user = require('../../models/queries/users')
 
 router.get('/', (request, response) => {
-  database.getAlbums()
+  albums.getAlbums()
     .then( albums => {
       response.render('home', { albums: albums })
     })
@@ -12,7 +14,7 @@ router.get('/', (request, response) => {
 })
 
 router.get('/albums/:albumID', (request, response) =>
-  database.getAlbumsByID(request.params.albumID)
+  albums.getAlbumsByID(request.params.albumID)
     .then( albums =>
       response.render('album', { album: albums[0]})
     )
@@ -33,7 +35,7 @@ router.get('/sign_up', (request, response) =>
 router.post('/sign_up', (request, response) => {
   console.log( "(>'')>  ", request.body )
   const user = request.body
-  database.createUser(user)
+  user.createUser(user)
 })
 
 router.use( (request, response) =>
