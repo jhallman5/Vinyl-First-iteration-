@@ -11,9 +11,23 @@ const getUserById = (id) =>
 const getUserByUsername = (username) =>
   query("Select * FROM users WHERE username = $1", [username])
 
+const findOne = (username, callback) => {
+  return query("Select * FROM users WHERE username = $1", [username])
+    .then( (result, err) => {
+      callback(err, result[0])
+    })
+}
+const findUserByIdCB =( id, callback ) => {
+  return query("Select * FROM users WHERE id = $1", [id])
+    .then( (result, error) => {
+      callback(error, result[0])
+    })
+}
 
 module.exports = {
   createUser,
   getUserById,
-  getUserByUsername
+  getUserByUsername,
+  findOne,
+  findUserByIdCB
 }
