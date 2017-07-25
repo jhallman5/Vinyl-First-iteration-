@@ -9,9 +9,9 @@ const logInCheck = (request, response, next) =>
     ? response.redirect(`user/${request.session.passport.user}`)
     : next()
 
-router.get('/', logInCheck, (request, response, next) =>
+router.get('/', (request, response, next) =>
   Albums.getAlbums()
-    .then( albums => response.render('home', { albums: albums }))
+    .then( albums => response.render('home', { albums: albums, session: request.session.passport }))
     .catch( error => response.status(500).render('error', { error: error }))
 )
 

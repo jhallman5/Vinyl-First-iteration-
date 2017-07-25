@@ -1,31 +1,32 @@
 <%- include partials/header %>
 <%- include partials/nav %>
 
-<div class="columns">
-  <form class="field column is-one-third is-offset-one-third" action="/sign_in" method="POST">
+  <div class="columns">
+    <form class="field column is-one-third is-offset-one-third" action="/sign_in" method="POST">
 
-    <label class="label">Username</label>
-    <div class="control has-icons-left">
-      <input class="input" type="text" name="username" placeholder="jhallman5" value="jhallman5" />
-      <span class="icon is-small is-left">
-        <i class="fa fa-user"></i>
-      </span>
-    </div>
+      <label class="label">Username</label>
+      <div class="control has-icons-left">
+        <input class="input" type="text" name="username" placeholder="jhallman5" value="jhallman5" />
+        <span class="icon is-small is-left">
+          <i class="fa fa-user"></i>
+        </span>
+      </div>
 
-    <label class="label">Password</label>
-    <div class="control has-icons-left">
-      <input class="input" type="text"  name="password" placeholder="tomato" value="tomato"/>
-      <span class="icon is-small is-left">
-        <i class="fa fa-lock"></i>
-      </span>
-    </div>
+      <label class="label">Password</label>
+      <div class="control has-icons-left">
+        <input class="input" type="text"  name="password" placeholder="tomato" value="tomato"/>
+        <span class="icon is-small is-left">
+          <i class="fa fa-lock"></i>
+        </span>
+      </div>
 
-  <div class="field is-grouped">
-    <div class="control">
-      <input class="button " type="submit" value="sign in" />
+    <div class="field is-grouped">
+      <div class="control">
+        <input class="button " type="submit" value="sign in" />
+      </div>
     </div>
+    </form>
+
   </div>
-  </form>
 
-</div>
 <%- include partials/footer %>

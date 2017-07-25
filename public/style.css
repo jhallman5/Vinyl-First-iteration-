@@ -4,5 +4,8 @@ html, body {
   width: 100vw;
 }
 
-.button.is-primary {
+.background-image {
+  height: 50vh;
+  width: 100vw;
+
 }
