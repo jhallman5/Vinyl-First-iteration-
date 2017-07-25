@@ -1,18 +1,15 @@
 const router = require('express').Router()
-const no_auth = require('./no_auth').router
+const auth = require('./auth').router
 const albums = require('./albums').router
 const users = require('./users').router
 
-// const sessionChecker = (request, response, next) => {
-//   if(request.session.passport) {
-//     next()
-//   } else{
-//     response.redirect('/sign_in')
-//   }
-// }
+const sessionChecker = (request, response, next) =>
+  request.session.passport
+    ? next()
+    : response.redirect('/sign_in')
 
-router.use(no_auth)
-// router.use(sessionChecker)
+router.use(auth)
+router.use(sessionChecker)
 router.use('/user', users)
 router.use('/albums', albums)
 
