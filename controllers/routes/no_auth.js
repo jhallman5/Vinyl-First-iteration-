@@ -1,5 +1,6 @@
 const router = require('express').Router()
 const Albums = require('../../models/queries/albums')
+const { passport } = require('../../config/passport')
 
 router.get('/', (request, response) => {
   Albums.getAlbums()
@@ -10,6 +11,10 @@ router.get('/', (request, response) => {
 router.get('/sign_in', (request, response) =>
   response.render('sign_in')
 )
+
+router.post('/sign_in', (request, response, next) => {
+  passport.authenticate('local', { successRedirect:'/', failureRedirect: '/sign_up'})(request, response, next)
+})
 
 router.get('/sign_up', (request, response) =>
   response.render('sign_up')

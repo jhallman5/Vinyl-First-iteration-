@@ -1,6 +1,10 @@
 const express = require('express')
 const bodyParser = require('body-parser')
+const cookieParser = require('cookie-parser')
+const session = require('express-session')
+
 const { router } = require('./controllers/routes')
+const { passport } = require('./config/passport')
 
 const server = express()
 const port = process.env.PORT || 3000
@@ -10,9 +14,17 @@ server.set('view engine', 'ejs');
 
 server.use('/scripts', express.static(__dirname + '/node_modules/bulma/css'))
 server.use(express.static('public'))
+server.use(cookieParser())
 server.use(bodyParser.urlencoded({ extended: false }))
 server.use(bodyParser.json())
+server.use(session({
+  secret:'SHHHHH',
+  resave: false,
+  saveUninitialized: false
+}))
 
+server.use(passport.initialize())
+server.use(passport.session())
 
 server.use(router)
 
