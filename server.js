@@ -17,13 +17,12 @@ server.use('/scripts', express.static(__dirname + '/node_modules/bulma/css'))
 server.use(express.static(path.join(__dirname, 'public')))
 server.use(cookieParser())
 server.use(bodyParser.urlencoded({ extended: false }))
-server.use(bodyParser.json())
 server.use(session({
   secret:'SHHHHH',
   resave: true,
   saveUninitialized: true,
   cookie: {
-    maxAge: 3000
+    maxAge: 300000000
   }
 }))
 

@@ -33,7 +33,8 @@ router.post('/sign_up', (request, response, next) => {
     .then(hash => {
       user.password = hash
       User.createUser(user)
-        .then( userId => response.redirect(`/user/${userId[0].id}`) )
+        .then( newUser => {
+          response.redirect(`/user/${newUser[0].id}`) })
         .catch( error => response.status(500).render('error', { error: error }))
     })
 })
