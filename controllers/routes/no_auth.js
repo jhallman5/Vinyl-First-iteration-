@@ -16,11 +16,14 @@ router.get('/sign_in', (request, response, next) =>
 )
 
 router.post('/sign_in', (request, response, next) => {
-  const profileId = 1
-  passport.authenticate('local', { successRedirect: `/user/${profileId}`,
-                                   failureRedirect: '/sign_up'
-  })(request, response, next)
-
+  User.getUserByUsername( request.body.username )
+    .then( user => {
+      if (user[0]) passport.authenticate('local', { successRedirect: `/user/${user[0].id}`,
+                                                    failureRedirect: '/sign_in'
+      })(request, response, next)
+      else response.redirect('/sign_up')
+    })
+    .catch( error => response.status(500).render('error', { error: error }))
 })
 
 router.get('/sign_up', (request, response, next) =>
