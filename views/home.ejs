@@ -4,17 +4,28 @@
   <div class="content">
     <img class="background-image" src="/images/vinyl_background.jpg">
   </div>
-  <h1>Vinyl</h1>
 
-  <h2>Records</h2>
+  <div class="columns">
 
-  <div class="album-list">
-    <% albums.forEach(function(album) { %>
-      <div>
-        <h5><a href="/albums/<%= album.id %>"><%= album.title %></a></h5>
-        <span><%= album.artist %></span>
+    <div class="column is-3 is-offset-1">
+      <div class="has-text-centered">
+        Records
       </div>
-    <% }) %>
+
+      <div class="album-list">
+        <% albums.forEach(function(album) { %>
+          <div>
+            <h5><a href="/albums/<%= album.id %>"><%= album.title %></a></h5>
+            <span><%= album.artist %></span>
+          </div>
+        <% }) %>
+    </div>
   </div>
 
+    <div class="column is-7">
+      <div class='has-text-centered'>
+        Recent Reviews
+      </div>
+    </div>
+  </div>
 <%- include partials/footer %>

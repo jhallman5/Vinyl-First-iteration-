@@ -17,3 +17,14 @@ VALUES
   ('steven3@yahoo.com', 'steven4', '$2a$12$EURZ3DJphoWsM4ORhokHW.QQKwrJywUkSZhWRFATurQeSFFH.cIG.'), --password: orange
   ('lisa@hotmail.com', 'lisa3', '$2a$12$svU811CLIJYvGTR21exMc.xqBTQKvAgaK7viIDApndifq4SW9MBuW') --password: banana
 ;
+
+INSERT INTO
+  reviews (album_id, user_id, content)
+VALUES
+  (2, 1, 'I did not get a seat at the table.'),
+  (4, 3, 'I really enjoy Radiohead.'),
+  (4, 3, 'Oh Lorde.'),
+  (1, 2, 'MALIBU!!! HECK YEA!'),
+  (3 , 2, 'I have reviewed the wrong album!'),
+  (4, 1, 'more like over the rainbows.')
+;
