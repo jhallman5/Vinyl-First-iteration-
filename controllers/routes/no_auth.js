@@ -1,7 +1,7 @@
 const router = require('express').Router()
 const User = require('../../models/queries/users')
 const Albums = require('../../models/queries/albums')
-const passport  = require('../../config/passport')
+const { passport } = require('../../auth/passport')
 
 
 router.get('/', (request, response, next) =>

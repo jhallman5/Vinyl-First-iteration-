@@ -11,6 +11,6 @@ CREATE TABLE users (
   id SERIAL,
   email VARCHAR(50) NOT NULL,
   username VARCHAR(50) NOT NULL,
-  password VARCHAR(50) NOT NULL,
+  password VARCHAR(100) NOT NULL,
   member_since date DEFAULT CURRENT_DATE
 );
