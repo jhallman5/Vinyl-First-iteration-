@@ -1,6 +1,7 @@
 const router = require('express').Router()
 const User = require('../../models/queries/users')
 const Albums = require('../../models/queries/albums')
+const Helper = require('../helper_functions')
 const { passport } = require('../../auth/passport')
 
 
@@ -28,9 +29,13 @@ router.get('/sign_up', (request, response, next) =>
 
 router.post('/sign_up', (request, response, next) => {
   const user = request.body
-  User.createUser(user)
-    .then( userId => response.redirect(`/user/${userId[0].id}`) )
-    .catch( error => response.status(500).render('error', { error: error }))
+  Helper.hashPassword(user.password)
+    .then(hash => {
+      user.password = hash
+      User.createUser(user)
+        .then( userId => response.redirect(`/user/${userId[0].id}`) )
+        .catch( error => response.status(500).render('error', { error: error }))
+    })
 })
 
 module.exports = { router }
