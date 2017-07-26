@@ -1,5 +1,4 @@
 const router = require('express').Router()
-const Albums = require('../../models/queries/albums')
 const Reviews = require('../../models/queries/reviews')
 const { processAlbumsWithReviews } = require('../helper_functions')
 

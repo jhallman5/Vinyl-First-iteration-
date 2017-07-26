@@ -1,8 +1,6 @@
 const router = require('express').Router()
 const Albums = require('../../models/queries/albums')
-
-// const Reviews = require('../../models/queries/albums')
-// const {} = require('../helper_functions')
+const Reviews = require('../../models/queries/reviews')
 
 router.get('/:albumId/new_review', (request, response, next) => {
     Albums.getAlbumsByID(request.params.albumId)
@@ -14,7 +12,7 @@ router.post('/:albumId/new_review', (request, response, next) => {
   const { content } = request.body
   const { user } = request.session.passport
   const { albumId } = request.params
-  console.log( "=-=-=-> content", content, user, albumId )
-  response.render('new_review', {session: request.session.passport})
+  Reviews.createReview(albumId, user, content)
+    .then( () => response.redirect(`/albums/${albumId}`))
 })
 module.exports= { router }
