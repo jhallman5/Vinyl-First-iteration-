@@ -13,8 +13,10 @@ const getAllAlbumsAndAllReviews = () =>
         .then( reviews => {
           return {albums, reviews}
         })
+        .catch( error => console.log('query Error ---->', error) )
     )
-
+    .catch( error => console.log('query Error ---->', error) )
+    
 module.exports = {
   getAlbums,
   getAlbumsByID,

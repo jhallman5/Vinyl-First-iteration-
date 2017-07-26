@@ -1,11 +1,58 @@
 <%- include partials/header %>
 <%- include partials/nav %>
+  <div class="columns">
+    <div class="card column is-3 is-offset-1 ">
+      <div class="card-image">
+        <figure class="image is-128x128">
+          <img src="/images/no_user.png">
+        </figure>
+      </div>
+      <div class="card-content">
+        <div class="media">
+          <div class="media-content">
+            <p class="is-small">
+              Username: <%- user.username %>
+            </p>
+            <p class="is-small">
+              Email: <%- user.email %>
+            </p>
+            <p class="is-small">
+              Member since: <%- user.member_since %>
+            </p>
 
-  <div>
-    Welcome to the user's profile!
-    They should be <%- data.username %> <br />
-    Their email is <%- data.email %> <br />
-    They have been a member since <%- data.member_since %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="column is-7">
+      <div class="has-text-centered">
+        My Reviews
+      </div>
+      <div class="review-list">
+        <% user.reviews.forEach(function(review) { %>
+            <form class="box" action="../reviews/<%- review.id %>/delete" method="POST">
+              <artivle class="media">
+                <figure class="media-left">
+                  <p class="image is-64x64">
+                    <img src="/images/no_user.png"></i>
+                  </p>
+                </figure>
+                <div class="media-content">
+                  <div class="content">
+                    <%= review.content %>
+                  </div>
+                </div>
+                <div class="media-right control">
+                  <button class="button is-small is-right delete-review" type="submit">
+                    <i class="fa fa-trash"></i>
+                  </button>
+                </div>
+              </artivle>
+            </form>
+        <% })%>
+      </div>
+
+    </div>
   </div>
-
 <%- include partials/footer %>

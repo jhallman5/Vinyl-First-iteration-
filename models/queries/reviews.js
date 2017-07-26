@@ -6,7 +6,11 @@ const getReviewsByAlbumId = (albumId) =>
 const createReview = (albumId, userId, content) =>
   query('INSERT INTO reviews VALUES (DEFAULT, $1, $2, $3)', [albumId, userId, content])
 
+const deleteReview = (reviewId) =>
+  query('DELETE FROM reviews WHERE id = $1', [reviewId])
+
 module.exports = {
   getReviewsByAlbumId,
-  createReview
+  createReview,
+  deleteReview
 }
