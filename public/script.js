@@ -4,4 +4,12 @@ document.addEventListener('DOMContentLoaded', function() {
       ? null
       : event.preventDefault()
   }))
+
+  document.querySelectorAll('.new-review-form').forEach( item => item.addEventListener('click', function(event){
+    if (document.querySelector('textarea').value.replace(/\s/g,'').length < 1){
+      event.preventDefault()
+      alert('Make Sure you use your words now.')
+    }
+  }))
+
 })
