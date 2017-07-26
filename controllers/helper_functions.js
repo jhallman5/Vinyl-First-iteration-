@@ -22,7 +22,7 @@ const processAlbumsWithReviews = ( queryResults ) => {
 
 const logInCheck = (request, response, next) =>
   request.session.passport
-    ? response.redirect(`user/${request.session.passport.user}`)
+    ? response.redirect(`users/${request.session.passport.user}`)
     : next()
 
 const sessionChecker = (request, response, next) =>

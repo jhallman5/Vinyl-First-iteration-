@@ -8,3 +8,7 @@ html, body {
   height: 50vh;
   width: 100vw;
 }
+
+.margin-top-10 {
+  margin-top: 10vh;
+}

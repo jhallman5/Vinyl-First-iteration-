@@ -18,7 +18,7 @@ router.post('/sign_in', logInCheck, (request, response, next) => {
   User.getUserByUsername( request.body.username )
     .then( user => {
       (user[0])
-      ? passport.authenticate('local', { successRedirect: `/user/${user[0].id}`,
+      ? passport.authenticate('local', { successRedirect: `/users/${user[0].id}`,
                                                     failureRedirect: '/sign_in' })(request, response, next)
       : response.redirect('/sign_up')
     })
@@ -36,7 +36,7 @@ router.post('/sign_up', (request, response, next) => {
       user.password = hash
       User.createUser(user)
         .then( newUser => {
-          response.redirect(`/user/${newUser[0].id}`) })
+          response.redirect(`/users/${newUser[0].id}`) })
         .catch( error => response.status(500).render('error', { error: error }))
     })
 })
