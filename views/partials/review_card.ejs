@@ -1,0 +1,17 @@
+<!-- Requires review object -->
+
+  <div class="box">
+    <article class="media">
+      <figure class="media-left">
+        <p class="image is-64x64">
+          <img src="/images/no_user.png"></i>
+        </p>
+      </figure>
+      <div class="media-content">
+        <div class="content">
+          <a href="http://localhost:3000/users/<%= review.user_id %>"><%= review.username %> </a><br />
+          <%= review.content %>
+        </div>
+      </div>
+    </article>
+  </div>

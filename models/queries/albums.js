@@ -9,14 +9,14 @@ const getAlbumsByID = (albumID) =>
 const getAllAlbumsAndAllReviews = () =>
   query("SELECT * FROM albums",[])
     .then( albums =>
-      query("SELECT * FROM reviews ORDER BY created_on DESC",[])
+      query("SELECT * FROM reviews r LEFT JOIN users u ON r.user_id = u.id ORDER BY created_on DESC",[])
         .then( reviews => {
           return {albums, reviews}
         })
         .catch( error => console.log('query Error ---->', error) )
     )
     .catch( error => console.log('query Error ---->', error) )
-    
+
 module.exports = {
   getAlbums,
   getAlbumsByID,

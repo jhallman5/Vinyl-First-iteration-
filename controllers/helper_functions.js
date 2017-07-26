@@ -15,6 +15,7 @@ const processAlbumsWithReviews = ( queryResults ) => {
         return {
           id: review.id,
           user_id: review.user_id,
+          username: review.username,
           content: review.content,
           created_on: review.created_on
         }
