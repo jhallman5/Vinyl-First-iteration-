@@ -1,8 +1,21 @@
 <%- include partials/header %>
 <%- include partials/nav %>
 
-  <h1><%= album.title %></h1>
-  <em>by <%= album.artist %></em>
+  <section class="hero is-light is-bold">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">
+          <%= album.title %>
+        </h1>
+        <h2 class="subtitle">
+          <em>by <%= album.artist %></em>
+        </h2>
+      </div>
+    </div>
+    <a class="button is-warning" href="/reviews/<%- album.id %>/new_review">
+      Add a Review
+    </a>
+  </section>
 
   <div class="columns">
     <div class="column is-7 is-offset-1">
@@ -14,9 +27,7 @@
           <%- include partials/review_card %>
         <% })%>
       </div>
-      <a class="button is-primary" href="/reviews/<%- album.id %>/new_review">
-        Add a review!
-      </a>
+
     </div>
 
     <div class="column is-3">

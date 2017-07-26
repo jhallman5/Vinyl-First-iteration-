@@ -1,11 +1,21 @@
 <%- include partials/header %>
 <%- include partials/nav %>
 
-  <div>
-    <%- album.title %> <br />
-    <em>by <%= album.artist %></em>
-  </div>
-  <div class="columns margin-top-10">
+
+  <section class="hero is-light is-bold">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">
+          <%= album.title %>
+        </h1>
+        <h2 class="subtitle">
+          <em>by <%= album.artist %></em>
+        </h2>
+      </div>
+    </div>
+  </section>
+
+  <div class="columns margin-top-5">
     <form class="field column is-4 is-offset-4" method="POST">
       <div class="has-text-centered">
         Make Your Voice Heard!
