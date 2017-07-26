@@ -7,6 +7,7 @@ const hashPassword = (password) =>
 
 const processAlbumsWithReviews = ( queryResults ) => {
   return {
+      id: queryResults[0].album_id,
       title: queryResults[0].title,
       artist: queryResults[0].artist,
       reviews: queryResults.map( review => {
