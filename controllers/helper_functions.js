@@ -5,4 +5,34 @@ const hashPassword = (password) =>
     .then( hash => hash)
     .catch( error => console.log('bcrypt error ---> ', error ))
 
-module.exports = { hashPassword }
+const processAlbumsWithReviews = ( queryResults ) => {
+  return {
+      title: queryResults[0].title,
+      artist: queryResults[0].artist,
+      reviews: queryResults.map( review => {
+        return {
+          id: review.id,
+          user_id: review.user_id,
+          content: review.content,
+          created_on: review.created_on
+        }
+      })
+    }
+}
+
+const logInCheck = (request, response, next) =>
+  request.session.passport
+    ? response.redirect(`user/${request.session.passport.user}`)
+    : next()
+
+const sessionChecker = (request, response, next) =>
+  request.session.passport
+    ? next()
+    : response.redirect('/sign_in')
+
+module.exports = {
+  hashPassword,
+  processAlbumsWithReviews,
+  logInCheck,
+  sessionChecker
+}
