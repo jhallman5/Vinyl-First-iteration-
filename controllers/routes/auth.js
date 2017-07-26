@@ -1,7 +1,7 @@
 const router = require('express').Router()
 const User = require('../../models/queries/users')
 const Albums = require('../../models/queries/albums')
-const { loginCheck, hashPassword } = require('../helper_functions')
+const { loginCheck, hashPassword, checkIfEmailExists } = require('../helper_functions')
 const { passport } = require('../../auth/passport')
 
 router.get('/', (request, response, next) =>
@@ -29,7 +29,7 @@ router.get('/sign_up', loginCheck, (request, response, next) =>
   response.render('sign_up')
 )
 
-router.post('/sign_up', (request, response, next) => {
+router.post('/sign_up', checkIfEmailExists, (request, response, next) => {
   const user = request.body
   hashPassword(user.password)
     .then(hash => {

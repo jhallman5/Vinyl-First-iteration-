@@ -1,4 +1,5 @@
 const bcrypt = require('bcrypt')
+const {getUserByEmail} = require('../models/queries/users')
 
 const hashPassword = (password) =>
   bcrypt.hash(password, 12 )
@@ -48,10 +49,24 @@ const sessionChecker = (request, response, next) =>
     ? next()
     : response.redirect('/sign_in')
 
+
+const checkIfEmailExists = (request,response, next) => {
+  getUserByEmail(request.body.email)
+  .then( result => {
+    if(!result.length) {
+      next()
+    } else{
+      throw new Error('Email already in use')
+    }
+  })
+  .catch( error => response.redirect('/'))
+}
+
 module.exports = {
   hashPassword,
   processAlbumsWithReviews,
   processUserWithReviews,
   loginCheck,
-  sessionChecker
+  sessionChecker,
+  checkIfEmailExists
 }
