@@ -31,7 +31,7 @@
       </div>
       <div class="review-list">
         <% user.reviews.forEach(function(review) { %>
-            <div class="box">
+            <form class="box" action="../reviews/<%- review.id %>/delete" method="POST">
               <artivle class="media">
                 <figure class="media-left">
                   <p class="image is-64x64">
@@ -43,8 +43,13 @@
                     <%= review.content %>
                   </div>
                 </div>
+                <div class="media-right control">
+                  <button class="button is-small is-right" type="submit">
+                    <i class="fa fa-trash"></i>
+                  </button>
+                </div>
               </artivle>
-            </div>
+            </form>
         <% })%>
       </div>
 

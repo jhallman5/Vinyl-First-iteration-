@@ -24,6 +24,7 @@ const processAlbumsWithReviews = ( queryResults ) => {
 const processUserWithReviews = (queryResults) => {
   return {
     id: queryResults[0].user_id,
+    username: queryResults[0].username,
     email: queryResults[0].email,
     member_since: queryResults[0].member_since,
     reviews: queryResults.map( review => {
