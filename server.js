@@ -22,7 +22,7 @@ server.use(session({
   resave: true,
   saveUninitialized: true,
   cookie: {
-    maxAge: 300000000
+    maxAge: 1000 * 60 * 60 * 24
   }
 }))
 
