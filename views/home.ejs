@@ -6,7 +6,6 @@
   </div>
 
   <div class="columns">
-
     <div class="column is-3 is-offset-1">
       <div class="has-text-centered">
         Records
@@ -26,26 +25,13 @@
       <div class="has-text-centered">
         Recent Reviews
       </div>
-
       <div class="review-list">
         <% reviews.forEach(function(review, index) {
           if (index < 3){ %>
-            <div class="box">
-              <artivle class="media">
-                <figure class="media-left">
-                  <p class="image is-64x64">
-                    <img src="/images/no_user.png"></i>
-                  </p>
-                </figure>
-                <div class="media-content">
-                  <div class="content">
-                    <%= review.content %>
-                  </div>
-                </div>
-              </artivle>
-            </div>
+          <%- include partials/review_card %>
         <% }})%>
       </div>
     </div>
   </div>
+
 <%- include partials/footer %>

@@ -1,7 +1,6 @@
 <%- include partials/header %>
 <%- include partials/nav %>
 
-
   <h1><%= album.title %></h1>
   <em>by <%= album.artist %></em>
 
@@ -10,26 +9,11 @@
       <div class="has-text-centered">
         Recent Reviews
       </div>
-
       <div class="review-list">
         <% album.reviews.forEach(function(review) { %>
-            <div class="box">
-              <artivle class="media">
-                <figure class="media-left">
-                  <p class="image is-64x64">
-                    <img src="/images/no_user.png"></i>
-                  </p>
-                </figure>
-                <div class="media-content">
-                  <div class="content">
-                    <%= review.content %>
-                  </div>
-                </div>
-              </artivle>
-            </div>
+          <%- include partials/review_card %>
         <% })%>
       </div>
-
       <a class="button is-primary" href="/reviews/<%- album.id %>/new_review">
         Add a review!
       </a>
@@ -39,24 +23,10 @@
       <div class="has-text-centered">
         My reviews
       </div>
-
       <div class="my-review-list">
         <% album.reviews.filter(function(review) {
           if(review.user_id === session.user){ %>
-            <div class="box">
-              <artivle class="media">
-                <figure class="media-left">
-                  <p class="image is-64x64">
-                    <img src="/images/no_user.png"></i>
-                  </p>
-                </figure>
-                <div class="media-content">
-                  <div class="content">
-                    <%= review.content %>
-                  </div>
-                </div>
-              </artivle>
-            </div>
+            <%- include partials/review_card %>
         <% }})%>
       </div>
     </div>
