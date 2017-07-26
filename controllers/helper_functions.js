@@ -21,6 +21,22 @@ const processAlbumsWithReviews = ( queryResults ) => {
     }
 }
 
+const processUserWithReviews = (queryResults) => {
+  return {
+    id: queryResults[0].user_id,
+    email: queryResults[0].email,
+    member_since: queryResults[0].member_since,
+    reviews: queryResults.map( review => {
+      return {
+        id: review.id,
+        album_id: review.album_id,
+        content: review.content,
+        created_on: review.created_on
+      }
+    })
+  }
+}
+
 const logInCheck = (request, response, next) =>
   request.session.passport
     ? response.redirect(`users/${request.session.passport.user}`)
@@ -34,6 +50,7 @@ const sessionChecker = (request, response, next) =>
 module.exports = {
   hashPassword,
   processAlbumsWithReviews,
+  processUserWithReviews,
   logInCheck,
   sessionChecker
 }

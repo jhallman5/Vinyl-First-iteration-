@@ -1,5 +1,6 @@
 const router = require('express').Router()
 const User = require('../../models/queries/users')
+const { processUserWithReviews } = require('../helper_functions')
 
 router.get('/profile', (request, response, next) => {
   const { user } = request.session.passport
@@ -7,8 +8,8 @@ router.get('/profile', (request, response, next) => {
 })
 
 router.get('/:userId', (request, response, next) => {
-  User.getUserById(request.params.userId)
-    .then( data => response.render('user_profile', { data: data[0], session: request.session.passport }))
+  User.getUserAndReviewsByUserId(request.params.userId)
+    .then( user => response.render('user_profile', { user: processUserWithReviews(user), session: request.session.passport }))
     .catch( error => response.status(500).render('error', { error: error }))
 })
 

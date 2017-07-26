@@ -21,7 +21,7 @@ VALUES
 INSERT INTO
   reviews (album_id, user_id, content, created_on)
 VALUES
-  (2, 1, 'I did not get a seat at the table.', date '2017-07-25'),
+  (2, 1, 'I did not get a seat at the table.', date '2017-07-24'),
   (4, 3, 'I really enjoy Radiohead.', date '2009-01-21'),
   (3, 3, 'Oh Lorde.', date '2014-03-17'),
   (1, 2, 'MALIBU!!! HECK YEA!', date ' 2015-04-20'),
