@@ -6,7 +6,7 @@ const getAlbums = () =>
 const getAlbumsByID = (albumID) =>
   query("SELECT * FROM albums WHERE id = $1", [albumID])
 
-const getAlbumsWithReviews = () =>
+const getAllAlbumsAndAllReviews = () =>
   query("SELECT * FROM albums",[])
     .then( albums =>
       query("SELECT * FROM reviews ORDER BY created_on DESC",[])
@@ -18,5 +18,5 @@ const getAlbumsWithReviews = () =>
 module.exports = {
   getAlbums,
   getAlbumsByID,
-  getAlbumsWithReviews
+  getAllAlbumsAndAllReviews
 }

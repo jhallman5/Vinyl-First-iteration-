@@ -3,7 +3,7 @@ const User = require('../../models/queries/users')
 
 router.get('/profile', (request, response, next) => {
   const { user } = request.session.passport
-  response.redirect(`/user/${user}`)
+  response.redirect(`/users/${user}`)
 })
 
 router.get('/:userId', (request, response, next) => {

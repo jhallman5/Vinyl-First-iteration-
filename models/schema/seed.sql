@@ -23,7 +23,7 @@ INSERT INTO
 VALUES
   (2, 1, 'I did not get a seat at the table.', date '2017-07-25'),
   (4, 3, 'I really enjoy Radiohead.', date '2009-01-21'),
-  (4, 3, 'Oh Lorde.', date '2014-03-17'),
+  (3, 3, 'Oh Lorde.', date '2014-03-17'),
   (1, 2, 'MALIBU!!! HECK YEA!', date ' 2015-04-20'),
   (3 , 2, 'I have reviewed the wrong album!', date '1999-12-19'),
   (4, 1, 'more like over the rainbows.', date '1998-02-15')

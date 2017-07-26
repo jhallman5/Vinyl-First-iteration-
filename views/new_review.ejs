@@ -1,4 +1,24 @@
 <%- include partials/header %>
 <%- include partials/nav %>
+  <div>
+    <%- album.title %> <br />
+    <em>by <%= album.artist %></em>
+  </div>
+  <div class="columns margin-top-10">
+    <form class="field column is-4 is-offset-4" method="POST">
+      <div class="has-text-centered">
+        Make Your Voice Heard!
+      </div>
+      <div class="control">
+        <textarea class="textarea" name="content" placeholder="Share Your Opinion Here!"></textarea>
+      </div>
+
+      <div class="field is-grouped">
+        <div class="control">
+          <input class="button " type="submit" value="POST IT!" />
+        </div>
+      </div>
+    </form>
+  </div>
 
 <%- include partials/footer %>
