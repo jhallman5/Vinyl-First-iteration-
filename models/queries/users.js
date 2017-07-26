@@ -12,7 +12,7 @@ const getUserByUsername = (username) =>
   query("Select * FROM users WHERE username = $1", [username])
 
 const getUserAndReviewsByUserId = (userId) =>
-    query("Select * FROM users u LEFT JOIN reviews r ON u.id = r.user_id WHERE user_id = $1 ORDER BY created_on DESC", [userId])
+    query("Select * FROM users u LEFT JOIN reviews r ON u.id = r.user_id WHERE u.id = $1 ORDER BY created_on DESC", [userId])
 
 
 module.exports = {

@@ -38,7 +38,7 @@ const processUserWithReviews = (queryResults) => {
   }
 }
 
-const logInCheck = (request, response, next) =>
+const loginCheck = (request, response, next) =>
   request.session.passport
     ? response.redirect(`users/${request.session.passport.user}`)
     : next()
@@ -52,6 +52,6 @@ module.exports = {
   hashPassword,
   processAlbumsWithReviews,
   processUserWithReviews,
-  logInCheck,
+  loginCheck,
   sessionChecker
 }
