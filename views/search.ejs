@@ -1,0 +1,20 @@
+<%- include partials/header %>
+<%- include partials/nav %>
+
+<form method="POST" action"/search">
+  <input type="text" name="searchTerm" />
+  <button type="submit">Submit</button>
+</form>
+
+<% if (albums) { %>
+     <div class="album-list">
+        <% albums.forEach(function(album) { %>
+          <div>
+            <h5><a href="/albums/<%= album.id %>"><%= album.title %></a></h5>
+            <span><%= album.artist %></span>
+          </div>
+        <% }) %>
+    </div>
+<% } %>
+
+<%- include partials/footer %>

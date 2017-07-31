@@ -17,8 +17,12 @@ const getAllAlbumsAndAllReviews = () =>
     )
     .catch( error => console.log('query Error ---->', error) )
 
+const searchAlbums = (searchTerm) =>
+  query("SELECT * FROM albums WHERE title ILIKE $1", [`%${searchTerm}%`])
+
 module.exports = {
   getAlbums,
   getAlbumsByID,
-  getAllAlbumsAndAllReviews
+  getAllAlbumsAndAllReviews,
+  searchAlbums
 }
