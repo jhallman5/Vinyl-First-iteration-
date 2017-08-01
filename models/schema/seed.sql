@@ -11,11 +11,16 @@ VALUES
 ;
 
 INSERT INTO
+  users (email, username, password, profile_picture_url)
+VALUES
+  ('jhallman5@gmail.com', 'jhallman5', '$2a$12$WA.H4mN3N3tpHbdF.eVvh.J02GUQRoZ9YMthrObiwoChoV9A3rR9e', 'https://ucarecdn.com/ba0b5e29-e1a9-43b4-8114-e25e600a0703/16665938_10211049896457736_1946023234875043586_o.jpg' ), --password: tomato
+  ('lisa@hotmail.com', 'lisa3', '$2a$12$svU811CLIJYvGTR21exMc.xqBTQKvAgaK7viIDApndifq4SW9MBuW', 'https://ucarecdn.com/54bd3908-68bb-44f5-b59a-56ad997c3944/cake.png') --password: banana
+;
+
+INSERT INTO
   users (email, username, password)
 VALUES
-  ('jhallman5@gmail.com', 'jhallman5', '$2a$12$WA.H4mN3N3tpHbdF.eVvh.J02GUQRoZ9YMthrObiwoChoV9A3rR9e'), --password: tomato
-  ('steven3@yahoo.com', 'steven4', '$2a$12$EURZ3DJphoWsM4ORhokHW.QQKwrJywUkSZhWRFATurQeSFFH.cIG.'), --password: orange
-  ('lisa@hotmail.com', 'lisa3', '$2a$12$svU811CLIJYvGTR21exMc.xqBTQKvAgaK7viIDApndifq4SW9MBuW') --password: banana
+  ('steven3@yahoo.com', 'steven4', '$2a$12$EURZ3DJphoWsM4ORhokHW.QQKwrJywUkSZhWRFATurQeSFFH.cIG.') --password: orange
 ;
 
 INSERT INTO

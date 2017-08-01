@@ -29,6 +29,7 @@ const processUserWithReviews = (queryResults) => {
     username: queryResults[0].username,
     email: queryResults[0].email,
     member_since: queryResults[0].member_since,
+    profile_picture_url: queryResults[0].profile_picture_url,
     reviews: queryResults.map( review => {
       return {
         id: review.id,

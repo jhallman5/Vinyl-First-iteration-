@@ -5,8 +5,18 @@
     <div class="card column is-3 is-offset-1 ">
       <div class="card-image">
         <figure class="image is-128x128">
-          <img src="/images/no_user.png">
+          <% if(user.profile_picture_url) { %>
+            <img src="<%- user.profile_picture_url %>">
+          <% } else { %>
+            <img src="/images/no_user.png">
+          <% } %>
         </figure>
+        <input type="hidden"
+          role="uploadcare-uploader"
+          name="content"
+          data-public-key="37b81264756bfeeb2253"
+          data-shrink="128x128"
+          data-images-only />
       </div>
       <div class="card-content">
         <div class="media">

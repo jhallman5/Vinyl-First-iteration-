@@ -12,3 +12,12 @@ html, body {
 .margin-top-5 {
   margin-top: 5vh;
 }
+
+.uploadcare--widget__button_type_open {
+  background-color: slategrey;
+}
+
+.uploadcare--widget__progress {
+  color:#FFF;
+  border-color: #000;
+}
