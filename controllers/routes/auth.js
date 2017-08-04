@@ -3,12 +3,24 @@ const User = require('../../models/queries/users')
 const Albums = require('../../models/queries/albums')
 const { loginCheck, hashPassword, checkIfEmailExists } = require('../helper_functions')
 const { passport } = require('../../auth/passport')
+const { AlbumsORM, ReviewsORM } = require('../../ORM/bookshelf')
+
 
 router.get('/', (request, response, next) =>
   Albums.getAllAlbumsAndAllReviews()
     .then( content => response.render('home', { albums: content.albums, reviews: content.reviews, session: request.session.passport }))
     .catch( error => response.status(500).render('error', { error: error }))
 )
+
+// router.get('/', (request, response, next) =>
+//   AlbumsORM.forge()
+//     .fetchAll()
+//     .then( content => {
+//       console.log( "=-=-=-> content", content )
+//        response.render('home', { albums: content.albums, reviews: content.reviews, session: request.session.passport })
+//      })
+//     .catch( error => response.status(500).render('error', { error: error }))
+// )
 
 router.get('/sign_in', loginCheck, (request, response, next) =>
   response.render('sign_in')

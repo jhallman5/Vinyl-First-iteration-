@@ -12,13 +12,13 @@
         <div class="media">
           <div class="media-content">
             <p class="is-small">
-              Username: <%- user.username %>
+              Username: <%= user.attributes.username %>
             </p>
             <p class="is-small">
-              Email: <%- user.email %>
+              Email: <%= user.attributes.email %>
             </p>
             <p class="is-small">
-              Member since: <%- user.member_since %>
+              Member since: <%= user.attributes.member_since %>
             </p>
           </div>
         </div>
@@ -30,7 +30,7 @@
         My Reviews
       </div>
       <div class="review-list">
-        <% user.reviews.forEach(function(review) { %>
+        <% reviews.forEach(function(review) { %>
             <form class="box" action="../reviews/<%- review.id %>/delete" method="POST">
               <article class="media">
                 <figure class="media-left">
@@ -40,11 +40,11 @@
                 </figure>
                 <div class="media-content">
                   <div class="content">
-                    <a href="http://localhost:3000/users/<%= user.id %>"><%= user.username %> </a><br />
-                    <%= review.content %>
+                    <a href="http://localhost:3000/users/<%= user.id %>"><%= user.attributes.username %> </a><br />
+                    <%= review.attributes.content %>
                   </div>
                 </div>
-                <% if (user.id === session.user) { %>
+                <% if (user.attributes.id === session.user) { %>
                 <div class="media-right control">
                   <button class="button is-small is-right delete-review" type="submit">
                     <i class="fa fa-trash"></i>
